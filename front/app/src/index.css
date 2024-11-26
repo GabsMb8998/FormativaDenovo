@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Poppins';
+}
+
+button {
+    font-size: 1.2rem;
+}
+
+.button-sensor{
+    background-color: #e2b9d9;
+    color: #612855;
+}
+
+.button-temperatura{
+    background-color: #EDD0A8;
+    color: #5A4E3C;
+}   
+.button-umidade{
+    background-color: #A7D3DB;
+    color: #2B494F;
+}   
+.button-luminosidade{
+    background-color: #EEE4C0;
+    color: #6C664E;
+}   
+.button-contador{
+    background-color: #C2BDEA;
+    color: #443E71;
+}   
+
+.icon-sensor{
+    background-color: #ebc2e2;
+}
+.icon-temperatura{
+    background-color: #EFDCBD;
+}
+.icon-temperatura img, .icon-contador img, .icon-sensor img{
+    width: 25%;
+}
+.icon-umidade{
+    background-color: #B5E1E9;
+}
+.icon-luminosidade{
+    background-color: #E8E9B9;
+}
+.icon-contador{
+    background-color: #D8D4F6;
+}
+
+.escolher-arquivo {
+    color: #5B5B5B;
+    border: solid 2px #5B5B5B;
+}
+
+.color-font-dados {
+    color: #3C4244;
+}
+
+.color-titulo{
+    color: #656565;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 24px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 24px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 24px 5px rgba(0,0,0,0.1);
+}
+
+.input-login {
+    background-color: #F1F1F1;
+}
+
+.button-login {
+    background-color: #A2E799;
+}
+
+.color-green {
+    color: #86B97F;
+}
+
+.barata-centralizada{
+    margin-top: 21%;
+}
+
+/* TABLE DADOS */
+
+.bg-table{
+    background-color: #161616;
+}
+
+.text-nav{
+    color: #9B9B9B;
+}
+
+.text-nav-selected {
+    background: linear-gradient(to right, #373640, #5B5B67, #474242);
+    color: #fff;
+}
+
+/* .font-nav {
+    color: #646464;
+} */
+
+.barra-selected {
+    height: 1px;
+}
+.shadowTable {
+    -webkit-box-shadow: 0px 0px 71px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 71px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 71px 0px rgba(0,0,0,0.2);
+}
+
+.border-table {
+    border-bottom: #9c9b9b solid 1px;
+}
+
+table {
+    table-layout: fixed; /* Isso faz com que as colunas tenham a mesma largura, independentemente do conteúdo */ /* Remove o espaçamento entre as células */
+}
+
+th, td {
+    padding: 1rem; /* Ajuste o espaçamento interno das células */
+    text-align: center; /* Alinha o texto ao centro *//* Adiciona uma borda fina para as células */
+}
+
+.shadow-button-atualizar {
+    -webkit-box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.25);
+}
+
+.borda-input-login {
+    border-bottom: solid #BCBCBC 1px;
+}
+
+
+.fundo-login {
+    width: 50vw;
+}
+
+.shadow-card-home {
+    -webkit-box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.34);
+    box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.34)
+}
+
+.tamanho-card-login {
+    height: 26rem;
+    width: 21rem
+}

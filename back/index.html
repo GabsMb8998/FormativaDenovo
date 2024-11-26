@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <input type="text" id="username">
+    <input type="text" id="email">
+    <input type="password" id="password">
+
+    <button id="userForm">Enviar</button>
+    <script >
+
+        // document.getElementById('userForm').addEventListener('click', 
+        // function(event) {
+
+        // event.preventDefault();
+
+        // var username = document.getElementById('username').value;
+        // var email = document.getElementById('email').value;
+        // var password = document.getElementById('password').value;
+
+        // console.log('teste1')
+       
+        
+        // var formData = new FormData();
+        
+        // formData.append('username', username);
+        // formData.append('email', email);
+        // formData.append('password', password);
+        
+        // console.log('teste2')
+
+        // axios.post('http://localhost:5500/api/create_user/', formData, {
+        // headers: {
+        // 'Authorization': 'Basic ' + btoa('gabi:123456')
+        // }
+        // })
+        // .then(response => {
+        //     console.log("deu certo", response)
+        //     alert('Usuário cadastrado com sucesso!');
+        // })
+        // .catch(error => {
+        //     console.error('Erro:', error);
+        //     console.log("deu errado")
+        // alert('Erro ao cadastrar usuário');
+        // });
+        // });
+
+        document.getElementById('userForm').addEventListener('click', 
+            function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            var formData = new FormData();
+            formData.append('username', username);
+            formData.append('email', email);
+            formData.append('password', password);
+            fetch('http://localhost:8000/api/create_user/', { 
+            method: 'POST',
+            headers: {
+            'Authorization': 'Basic ' + btoa('smart_user:123456')
+            },
+            body: formData
+            })
+            .then(response => {
+            if (!response.ok) {
+            throw new Error('Erro ao cadastrar usuário');
+            }
+            alert('Usuário cadastrado com sucesso!');
+            })
+            .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao cadastrar usuário');
+            });
+            });
+
+
+    </script>
+
+    
+</body>
+</html>
