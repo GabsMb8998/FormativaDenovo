@@ -101,10 +101,6 @@ button {
     color: #fff;
 }
 
-/* .font-nav {
-    color: #646464;
-} */
-
 .barra-selected {
     height: 1px;
 }
@@ -151,4 +147,10 @@ th, td {
 .tamanho-card-login {
     height: 26rem;
     width: 21rem
+}
+
+ul .recharts-default-legend {
+    display: flex;
+    justify-content:  center;
+    column-gap: 50px;
 }

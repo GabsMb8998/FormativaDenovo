@@ -6,6 +6,7 @@ import { TituloOficial } from "../componets/TituloOficial";
 import { useLocation } from "react-router-dom";
 
 import "../index.css"
+import { useEffect, useState } from "react";
 
 export function Update(props){
 
@@ -16,11 +17,16 @@ export function Update(props){
     const valoresSensor = Object.values(parametros)
     const tipo = recebido.tipo
     const id = parametros.id
+    const [inputs, setInputs] = useState([])
 
     const dados = []
     let body = {
 
     }
+
+    labelsInputs.map((label=>{
+
+    }))
 
     
     // console.log(parametros.id)
@@ -28,18 +34,27 @@ export function Update(props){
     console.log(dados, 'dados')
 
     function enviarPatch(){
+
+        let data = {}
+        labelsInputs.forEach((label, index) =>{
+            if (inputValues[label] !== ""){
+                data[label] =   inputValues[label]
+                console.log(inputValues[label], 'input label')
+            }
+        })
+
+        console.log(data, 'dataaa')
+
         fetch('http://127.0.0.1:8000/api/update/',{
             method: "PATCH",
             headers: {
-                Authorization: `Bearer ${token}`,
+                // Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
               },
             body:JSON.stringify({
-
-    
+                table : tipo,
                 sensor_id: id,
-                data: [
-
-                ]
+                data: data
             }) 
         }).then(response=>{
             if (response.ok!=true){
@@ -49,6 +64,25 @@ export function Update(props){
         })
     }
 
+    const [inputValues, setInputValues] = useState(
+        labelsInputs.reduce((acc, input) => {
+            acc[input] = ""
+            return acc;
+        }, {})
+    )
+
+    const ChangeInput = (e) => {
+        const {name, value} = e.target;
+        console.log(name, value, 'name e value')
+        setInputValues((prevValues)=> ({
+            ...prevValues,
+            [name] : value
+        }))
+    }   
+
+    useEffect(()=>{
+        console.log(inputValues, 'input vvalues')
+    },[inputValues])
 
     return(
         
@@ -64,16 +98,14 @@ export function Update(props){
 
                     <div className={`${labelsInputs.length > 6 ? 'grid-cols-4 gap-y-20 gap-x-52' : 'grid-cols-2'}  grid  gap-y-20 items-center mt-24 w-10/12`}>
                         {labelsInputs.map((label, index)=>(
-                            <InputUpdate key={index} label={label} placeholder={valoresSensor[index]}
-                            onChange={()=>{
-                                dados.push((e)=>e.target.value)
-                            }}/>
+                            <InputUpdate key={index} label={label} placeholder={valoresSensor[index]} onChange={ChangeInput} value={inputValues[label]} name={label}
+                        />
                     ))}
 
                     </div>
 
                     <div className="flex mt-24 mr-90">
-                        <button className="bg-[#3A3A39] text-[#F3F3F3] py-6 px-20 shadow-button-atualizar text-xl tranform hover:scale-110 duration-200">atualizar</button>
+                        <button className="bg-[#3A3A39] text-[#F3F3F3] py-6 px-20 shadow-button-atualizar text-xl tranform hover:scale-110 duration-200" onClick={()=>enviarPatch()}>atualizar</button>
                     </div>
 
                 </div>

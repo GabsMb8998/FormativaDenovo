@@ -84,13 +84,14 @@ class UpdateSensoresView(APIView):
         table = request.data.get('table')
         print(table)
 
-        if table == 'temperatura':
+        if table == 'sensores':
             try:
                 data = request.data.get('data')
                 sensor_id = request.data.get('sensor_id')
-                sensor = TemperaturaData.objects.get(id=sensor_id)
-                serializer = TemperaturaDataSerializer(sensor, data=data, partial=True)
-                print(serializer.initial_data)
+                sensor = DadosSensores.objects.get(id=sensor_id)
+                print(data, 'sensorrrr')
+                serializer = SensorSerializer(sensor, data=data, partial=True)
+                
 
                 if serializer.is_valid():
                     print('testeeeeeeeeeee')
@@ -225,17 +226,27 @@ class ContadorDataViewSet(viewsets.ModelViewSet):
 class AdicionarSensor(APIView):
     def post(self,request):
         table = request.data.get('table')
-        print(request.data, 'data')
+        data = request.data.get('inputs')
+
         if table == 'sensores':
-
-            data = request.data.get('inputs')
-            print(data)
-
             serializers = SensorSerializer(data=data)
 
-            if serializers.is_valid():
-                novo_dado = serializers.save()
-                return Response(status=status.HTTP_201_CREATED)
+        if table == 'temperatura':
+            serializers = TemperaturaDataSerializer(data=data)
+  
+        if table == 'umidade':
+            serializers = UmidadeDataSerializer(data=data)
+  
+            
+        if table == 'contador':
+            serializers = ContadorDataSerializer(data=data)
+            
+        if table == 'luminosidade':
+            serializers = LuminosidadeDataSerializer(data=data)
         
+        if serializers.is_valid():
+            novo_dado = serializers.save()
+            return Response(status=status.HTTP_201_CREATED)
+            
         return Response(status=status.HTTP_400_BAD_REQUEST)
     

@@ -122,15 +122,15 @@ useEffect(()=>{
 
   return(
 
-    <div className="flex" > 
+    <div className="flex h-screen bg-fundo overflow-y-hidden" > 
 
     {/* div que move  */}
-    <div className={`duration-300 ease-in-out bg-[#242424] w-2/4 h-screen absolute ${login ? 'translate-x-full' : 'translate-x-0'} `}></div>
+    <div className={`duration-300 ease-in-out bg-[#242424] lg:w-2/4 w-full h-screen absolute hidden xl:block ${login ? 'translate-x-full' : 'translate-x-0'} `}></div>
 
       {/* lado do login  */}
-        <div className="bg-fundo w-2/4 h-screen flex justify-center items-center flex-col">
+        <div className=" lg:w-2/4 h-screen flex justify-center items-center flex-col ">
 
-          <video ref={videoRef} autoPlay loop className={`${login ? 'flex' : 'hidden'} h-4/6 mt-8 rounded-lg`}>
+          <video ref={videoRef} autoPlay loop className={`${login ? 'flex' : 'hidden'} h-4/6 mt-8 rounded-lg absolute -right-28 -top-60 opacity-50 scale-[2] lg:opacity-100  lg:scale-75 xl:static xl:opacity-100 ` }>
                 <source src={patinho} type="video/mp4" />
           </video>
 
@@ -139,16 +139,16 @@ useEffect(()=>{
             <img src={isPlayingLogin ? buttonPause : buttonPlay} alt="" />
           </button>
 
-          <div className={`${login ? 'hidden': ' p-32 pt-48 '} relative h-full flex flex-col `}>  
+          <div className={`${login ? 'hidden': 'lg:p-1 lg:pt-1 '} relative h-full flex flex-col w-full`}>  
               <LoginCadastro login={login} pagina={'cadastro'} setLogin={setLogin} cadastro={cadastro} user={user} setUser={setUser} password={password} setPassword={setPassword} pegarToken={pegarToken}/>
           </div>
 
         </div>
 
       {/* lado do cadastro */}
-        <div  className="bg-fundo w-2/4 h-screen flex justify-center items-center">
+        <div  className="bg-fundo lg:w-2/4  justify-center items-center w-full flex my-auto">
 
-        <button className={`${login ? 'hidden': 'block'} absolute  bottom-5 right-5`}
+        <button className={`${login ? 'hidden': 'block'} absolute  bottom-5 right-5 xl:relative xl:right-0 xl:bottom-0`}
           onClick={()=>tocar(login)}>
             <img src={isPlayingCadaster ? buttonPause : buttonPlay} alt="" />
           </button>
@@ -166,7 +166,6 @@ useEffect(()=>{
     
   )
 }
-
 export default App
 
 

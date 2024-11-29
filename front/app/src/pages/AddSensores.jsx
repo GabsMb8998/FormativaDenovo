@@ -34,7 +34,7 @@ export function AddSensores({}){
         fetch('http://127.0.0.1:8000/api/adicionar/',{
             method: "POST",
             headers: {
-                "Content-Type": "application/json"  // Adiciona o cabeçalho Content-Type
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 table: table,
@@ -74,13 +74,6 @@ export function AddSensores({}){
         }))
     }   
 
-    useEffect(()=>{
-        console.log(inputValues)
-
-    },[inputValues])
-
-
-
     return(
         <div className="flex">
             <NavTable/>
@@ -97,9 +90,9 @@ export function AddSensores({}){
                     <select
                     className="bg-inherit text-[#C5C5C5] border-b-2 border-slate-800" value={inputs[input]} name={input} onChange={ChangeInput} >
                     <option className="bg-inherit" value="">Selecione</option>
-                    <option className="bg-inherit" value="1">Temperatura</option>
-                    <option className="bg-inherit" value="2">Umidade</option>
-                    <option className="bg-inherit" value="3">Pressão</option>
+                    <option className="bg-inherit" value="1">Umidade</option>
+                    <option className="bg-inherit" value="2">Contador</option>
+                    <option className="bg-inherit" value="3">Temperarura</option>
                   </select>)
                   
                   : input === 'status_operacional' ? (

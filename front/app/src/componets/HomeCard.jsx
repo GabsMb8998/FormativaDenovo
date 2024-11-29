@@ -6,7 +6,7 @@ export function HomeCard({icon, label}){
     const navigate = useNavigate()
 
     return(
-        <div className="bg-fundo hover:bg-[#454545] hover:scale-105 duration-300 shadow-card-home  flex flex-col justify-between p-8 tamanho-card-login"
+        <div className="bg-fundo hover:bg-[#454545] hover:scale-105 duration-300 shadow-card-home  flex flex-col justify-between lg:w-[21rem] lg:h-[26rem] p-4 sm:p-5 sm:w-[15rem] sm:h-[20rem] w-[10rem] h-[15rem]"
           onClick={()=>{
             if (label ==='data'){
                 console.log('label')

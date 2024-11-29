@@ -11,17 +11,19 @@ import { TituloOficial } from "../componets/TituloOficial.jsx"
 import iconBack from "../imgs/imgs-nav/icon-back.svg"
 import iconAdd from "../imgs/icon-add.svg"
 import iconTemperatura from "../imgs/icon-temperatura.svg"
+import iconMenu from '../imgs/icon-menu.svg'
 
 
 import "../index.css"
+import { NavMobile } from "../componets/mobile/NavMobile.jsx"
 
 function TableDados(){
 
     const [token, setToken] = useState('')
     const [tableName, setTableName]= useState([])
     const [resultado, setResutado] = useState([])
-
     const [selected, setSelected] = useState('sensores')
+
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -127,7 +129,6 @@ function TableDados(){
     
         }, [selected, token])
 
-
     function mudarSelecionado(selecionado){
 
         if (selecionado === 'sensores'){
@@ -151,32 +152,35 @@ function TableDados(){
 
 
     return(
-           <div className="flex overflow-y-hidden overflow-x-hidden ">
-                <div>
-                    <NavTable/>
-                </div>
-                <main className="px-20 py-20 bg-fundo w-full h-screen">
+           <div className="flex xl:flex-row flex-col h-screen w-screen bg-fundo overflow-x-hidden overflow-y-hidden">
+                    <div>
+                        <NavTable page='table' selected={'data'}/>     
+                    </div>
+                    <img className="xl:hidden w-10 h-10 ml-12 my-10" src={iconMenu} alt="" />
 
-                    <div className="flex items-center gap-x-10 justify-between w-5/6">
+                <main className="xl:pl-20 xl:py-20 w-full h-screen flex flex-col px-10">
+
+                    <div className="flex items-center gap-x-10 justify-between xl:w-5/6 w-full mt-2 ">
                         <TituloOficial titulo={`Dados ${selected}` }/>
                         <img src={iconAdd} alt="" onClick={()=>navigate('/addSensores', {state: {table: selected, tableName: tableName }} ) }/>
                     </div>
 
                     <div>
-                        <ul  className="flex gap-x-20 my-20">
+                        <ul  className="xl:flex gap-x-20 my-20 hidden self-start">
                         <MenuData label='sensores' selected={selected ==='sensores'}  onClick={()=> mudarSelecionado('sensores')}/>
                         <MenuData label='temperatura' selected={selected ==='temperatura'}  onClick={()=> mudarSelecionado('temperatura')}/>
                         <MenuData label='luminosidade' selected={selected ==='luminosidade'}  onClick={()=> mudarSelecionado('luminosidade')}/>
                         <MenuData label='umidade' selected={selected ==='umidade'}  onClick={()=> mudarSelecionado('umidade')}/>
                         <MenuData label='contador' selected={selected ==='contador'}  onClick={()=> mudarSelecionado('contador')}/>
                         </ul>
-
                     </div>
 
-                    <div className="overflow-y-auto h-2/3 w-5/6 shadowTable px-20 py-10 overflow-x-auto">
+                    <div className="overflow-y-auto h-[60%] w-full xl:w-5/6 shadowTable px-20 py-10 overflow-x-auto">
                         <Table tipo={selected} resetar='' resultado={resultado} tableName={tableName}/>
                     </div>
                 </main>
+
+                <NavMobile selected={'data'}page={'table'}/>
            </div>
     )
 }
