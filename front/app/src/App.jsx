@@ -122,42 +122,42 @@ useEffect(()=>{
 
   return(
 
-    <div className="flex h-screen bg-fundo overflow-y-hidden" > 
+    <div className="flex h-screen w-screen bg-fundo overflow-y-hidden justify-center " > 
 
     {/* div que move  */}
-    <div className={`duration-300 ease-in-out bg-[#242424] lg:w-2/4 w-full h-screen absolute hidden xl:block ${login ? 'translate-x-full' : 'translate-x-0'} `}></div>
+    <div className={`duration-300 ease-in-out bg-[#242424] lg:w-2/4 w-full h-screen absolute hidden xl:block xl:left-0 ${login ? 'translate-x-full' : 'translate-x-0'} `}></div>
 
       {/* lado do login  */}
-        <div className=" lg:w-2/4 h-screen flex justify-center items-center flex-col ">
+        <div className=" bg-fundo lg:w-2/4 xl:justify-start justify-center items-center flex my-auto ">
 
-          <video ref={videoRef} autoPlay loop className={`${login ? 'flex' : 'hidden'} h-4/6 mt-8 rounded-lg absolute -right-28 -top-60 opacity-50 scale-[2] lg:opacity-100  lg:scale-75 xl:static xl:opacity-100 ` }>
+          <video ref={videoRef} autoPlay loop className={`${login ? 'flex' : 'hidden'} h-4/6 mt-8 rounded-lg absolute -right-28 -top-60 opacity-50 scale-[2] lg:opacity-100  xl:scale-75 xl:static xl:opacity-100 ` }>
                 <source src={patinho} type="video/mp4" />
           </video>
 
-          <button className={`${login ? 'block': 'hidden'} absolute  bottom-5 left-5`}
+          <button className={`${login ? 'block': 'hidden'}  absolute bottom-5 right-5 xl:left-5 xl:bottom-3`}
           onClick={()=>tocar(login)}>
             <img src={isPlayingLogin ? buttonPause : buttonPlay} alt="" />
           </button>
 
-          <div className={`${login ? 'hidden': 'lg:p-1 lg:pt-1 '} relative h-full flex flex-col w-full`}>  
+          <div className={`${login ? 'hidden': 'lg:p-1 lg:pt-1 '} relative h-full flex flex-col w-full z-10`}>  
               <LoginCadastro login={login} pagina={'cadastro'} setLogin={setLogin} cadastro={cadastro} user={user} setUser={setUser} password={password} setPassword={setPassword} pegarToken={pegarToken}/>
           </div>
 
         </div>
 
       {/* lado do cadastro */}
-        <div  className="bg-fundo lg:w-2/4  justify-center items-center w-full flex my-auto">
+        <div  className=" lg:w-2/4 xl:justify-start justify-center items-center flex my-auto ">
 
-        <button className={`${login ? 'hidden': 'block'} absolute  bottom-5 right-5 xl:relative xl:right-0 xl:bottom-0`}
+        <button className={`${login ? 'hidden': 'block'} absolute  bottom-5 right-5 xl:right-3 xl:bottom-5`}
           onClick={()=>tocar(login)}>
             <img src={isPlayingCadaster ? buttonPause : buttonPlay} alt="" />
           </button>
 
-          <video ref={videoCadasterRef} autoPlay loop className={`${login ? 'hidden' : 'flex'}  h-4/6 mt-8 rounded-l scale-125`}>
+          <video ref={videoCadasterRef} autoPlay loop className={`${login ? 'hidden' : 'flex'} h-4/6 xl:mt-[-15%] rounded-lg absolute -right-24 -top-48 opacity-50 scale-[1.3] lg:opacity-100  lg:scale-75 xl:static xl:opacity-100 xl:my-auto`}>
                   <source src={banguela} type="video/mp4" />
             </video>
 
-            <div className={`${login ? '': 'hidden'} relative h-full flex flex-col `}>  
+            <div className={`${login ? '': 'hidden'} relative h-full flex flex-col z-10 `}>  
                 <LoginCadastro login={login} pagina={'login'} setLogin={setLogin} pegarToken={pegarToken} setUser={setUser} setPassword={setPassword} user={user} password={password} />
             </div>
         </div>

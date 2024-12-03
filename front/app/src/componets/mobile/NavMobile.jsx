@@ -11,7 +11,7 @@ export function NavMobile({ page, selected}){
         // setSelected(element)
     }
     return(
-        <nav className={`${page === 'table'? 'xl:hidden' : 'flex'} bg-[#242424] w-full h-12 flex xl:hidden justify-center sm:gap-x-20 gap-x-10 py-10 items-center absolute bottom-0`}>
+        <nav className={`${page === 'table'? 'xl:hidden' : 'flex'} bg-[#242424] w-full h-12 flex xl:hidden justify-center sm:gap-x-20 gap-x-10 py-10 items-center fixed bottom-0 `}>
 
             <ItemNav 
             Icons={<IconHome fill={selected =='home'? '#F3F3F3' : '#606060'} />}

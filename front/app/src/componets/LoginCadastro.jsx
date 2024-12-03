@@ -5,20 +5,19 @@ import "../index.css"
 import iconUser from "../imgs/icon-user.svg"
 import iconPassword from "../imgs/icon-password.svg"
 
-export function LoginCadastro({pagina, login, setLogin, pegarToken, setUser, setPassword, user, password, cadastro} ){
+export function LoginCadastro({pagina, login, setLogin, pegarToken, setUser, setPassword, user, password, cadastro, width} ){
     return(
         
       <div className="bg-[#] lg:fundo-login w-full lg:h-screen relative">
 
-        <div className={`${login ? 'lg:p-32 lg:pt-48 ' : "pl-32"}   relative lg:h-full flex flex-col `}>
+        <div className={`${login ? 'lg:p-32 lg:pt-48 ' : "lg:pl-32"} xl:justify-center  relative lg:h-full flex flex-col `}>
         
             <h2 className="text-regular text-white text-4xl">{pagina}</h2>
 
             <div className="flex flex-col gap-y-20 mt-28">
-                <InputLogin tipo={'user'} icon={iconUser} setUser={setUser} user={user}/>
-
-                <InputLogin tipo={'password'} icon={iconPassword} setPassword={setPassword} password={password}
-                               
+                <InputLogin tipo={'user'} icon={iconUser} setUser={setUser} user={user} width={width}/>
+                <InputLogin tipo={'password'} icon={iconPassword} setPassword={setPassword} password={password} width={width}
+                 
                 />
             </div>
 
