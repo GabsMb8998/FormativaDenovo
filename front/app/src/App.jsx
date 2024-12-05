@@ -1,6 +1,5 @@
 import "./index.css"
-
-
+import "./styles/body.css"
 // imgs 
 import logo from "./imgs/logo.gif"
 import patinho from "./imgs/patinho.mp4"
@@ -53,11 +52,6 @@ function App(){
       console.log(data.access)
       localStorage.setItem('token', data.access)
     })    
-    // if (token!==''){
-    //   navigate("/tabledados")
-    // }else {
-    //   console.error();  
-    // }
   }
 
   
@@ -120,6 +114,7 @@ useEffect(()=>{
   }
 },[login])
 
+
   return(
 
     <div className="flex h-screen w-screen bg-fundo overflow-y-hidden justify-center " > 
@@ -130,7 +125,7 @@ useEffect(()=>{
       {/* lado do login  */}
         <div className=" bg-fundo lg:w-2/4 xl:justify-start justify-center items-center flex my-auto ">
 
-          <video ref={videoRef} autoPlay loop className={`${login ? 'flex' : 'hidden'} h-4/6 mt-8 rounded-lg absolute -right-28 -top-60 opacity-50 scale-[2] lg:opacity-100  xl:scale-75 xl:static xl:opacity-100 ` }>
+          <video ref={videoRef} autoPlay loop className={`${login ? 'flex' : 'hidden'} h-4/6 mt-8 rounded-lg absolute -right-28 -top-60 opacity-[0.2] scale-[2] lg:opacity-100  xl:scale-75 xl:static xl:opacity-100 ` }>
                 <source src={patinho} type="video/mp4" />
           </video>
 

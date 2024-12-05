@@ -75,15 +75,6 @@ export function Update(props){
         }, {})
     )
 
-    // const ChangeInput = (e) => {
-    //     const {name, value} = e.target;
-    //     console.log(name, value, 'name e value')
-    //     setInputValues((prevValues)=> ({
-    //         ...prevValues,
-    //         [name] : value
-    //     }))
-    // }   
-
     const ChangeInput = (e) => {
         const {name, value} = e.target;
 
@@ -105,21 +96,22 @@ export function Update(props){
         console.log(inputValues, 'input vvalues')
     },[inputValues])
 
+useEffect(()=>{
+    if (window.innerWidth < 640){
+        document.body.style.overflowY = 'auto'
+    }
+},[window.innerWidth])
+
+
     return(
         
         <div className="flex bg-fundo w-screen">
             <NavTable/>
+
             <main className="xl:px-32 xl:py-24 py-10 mx-auto ">
-
-                <div className={`lg:block hidden scale-125 `} onClick={()=>navigate(-1)}>
-                    <img src={iconBack} alt="" />
-                </div>
-
-                <div className={`lg:hidden absolute left-10 top-5`} onClick={()=>navigate(-1)}>
-                    <img src={iconBack} alt="" />
-                </div>
-                
                 <div>
+                    <img className="lg:block hidden scale-125 " onClick={()=>navigate(-1)} src={iconBack} alt="" />
+                    <img className={`lg:hidden `}  onClick={()=>navigate(-1)} src={iconBack} alt="" />
                     <TituloOficial titulo={`Alterar dados id ${valoresSensor[0]}`}/>
                 </div>
 
@@ -135,10 +127,10 @@ export function Update(props){
                                     className="text-[#C5C5C5] text-lg">tipo</label>
                                     <select
                                     className="bg-transparent border-b-2 w-60 placeholder-[#606060] border-table text-[#C5C5C5] text-md mt-1" value={labelsInputs[label]} name={label} onChange={ChangeInput} >
-                                    <option className="bg-inherit" value="">Selecione</option>
-                                    <option className="bg-inherit" value="1">Umidade</option>
-                                    <option className="bg-inherit" value="2">Contador</option>
-                                    <option className="bg-inherit" value="3">Temperarura</option>
+                                        <option className="bg-inherit" value="">Selecione</option>
+                                        <option className="bg-inherit" value="1">Umidade</option>
+                                        <option className="bg-inherit" value="2">Contador</option>
+                                        <option className="bg-inherit" value="3">Temperarura</option>
                                     </select>
                                 </div>
                                 </>
@@ -148,8 +140,7 @@ export function Update(props){
                                 <>
                                 <div className="flex flex-col">
                                     <label className="text-[#C5C5C5] text-lg">status_operacional</label>
-                                    <select className="bg-transparent border-b-2 w-60 placeholder-[#606060] border-table text-[#C5C5C5] text-md mt-2" value={labelsInputs[label]} name={label} onChange={ChangeInput}
-                                    >  
+                                    <select className="bg-transparent border-b-2 w-60 placeholder-[#606060] border-table text-[#C5C5C5] text-md mt-2" value={labelsInputs[label]} name={label} onChange={ChangeInput}>
                                         <option className="bg-inherit" value="">Selecione</option>
                                         <option className="bg-inherit" value="true">Sim</option>
                                         <option className="bg-inherit" value="false">Não</option>
