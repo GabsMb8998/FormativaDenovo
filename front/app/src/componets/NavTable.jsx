@@ -43,7 +43,7 @@ function NavTable({ page, selected}){
     console.log(selected, 'selected')
 
     return(
-                <aside className={` ${open ? 'w-64 items-start px-8 ' : 'w-24  items-center '} ${page === 'table' ? 'xl:flex' : 'hidden' } bg-[#242424] h-screen duration-200  flex-col relative hidden xl:flex`} >
+                <aside className={` ${open ? 'w-64 items-start px-8 ' : 'w-24  items-center '} ${page === 'table' ? 'xl:flex' : 'hidden' } bg-[#242424] h-screen duration-200  flex-col hidden xl:flex fixed`} >
                     
                     <div onClick={()=>openSideBar()} className={`mt-20 flex gap-x-7`}>
                         <div className={`${open && 'left-52'} absolute`}>

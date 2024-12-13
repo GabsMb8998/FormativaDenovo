@@ -155,18 +155,18 @@ function TableDados(){
            <div className="flex xl:flex-row flex-col h-screen w-screen bg-fundo overflow-x-hidden overflow-y-hidden">
                     <div>
                         <NavTable page='table' selected={'data'}/>     
-                    </div>
+                    </div>  
                     <img className="xl:hidden w-10 h-10 ml-12 my-10" src={iconMenu} alt="" />
 
-                <main className="xl:pl-20 xl:py-20 w-full h-screen flex flex-col px-10">
+                <main className="xl:pl-52 xl:py-20 w-full h-screen flex flex-col px-10">
 
                     <div className="flex items-center gap-x-10 justify-between xl:w-5/6 w-full mt-2 ">
                         <TituloOficial titulo={`Dados ${selected}` }/>
                         <img src={iconAdd} alt="" onClick={()=>navigate('/addSensores', {state: {table: selected, tableName: tableName }} ) }/>
                     </div>
 
-                    <div>
-                        <ul  className="xl:flex gap-x-20 my-20 hidden self-start">
+                    <div> 
+                        <ul  className="xl:flex gap-x-20 my-20 hidden self-start xl:w-5/6">
                         <MenuData label='sensores' selected={selected ==='sensores'}  onClick={()=> mudarSelecionado('sensores')}/>
                         <MenuData label='temperatura' selected={selected ==='temperatura'}  onClick={()=> mudarSelecionado('temperatura')}/>
                         <MenuData label='luminosidade' selected={selected ==='luminosidade'}  onClick={()=> mudarSelecionado('luminosidade')}/>

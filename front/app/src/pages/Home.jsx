@@ -25,7 +25,7 @@ export function Home(){
             <HeaderMobile/>
             <main className=" w-full lg:h-screen lg:px-20 lg:py-20 p-5 sm-20 lg:m-0">
 
-                <div className="px-5">
+                <div className="px-5 lg:px-28">
                     <TituloOficial titulo={'Home'}/> 
                     <h2 className="text-[#949494] lg:text-3xl text-2xl lg:mt-3">Welcome {user}</h2>
                 </div>

@@ -108,7 +108,7 @@ useEffect(()=>{
         <div className="flex bg-fundo w-screen">
             <NavTable/>
 
-            <main className="xl:px-32 xl:py-24 py-10 mx-auto ">
+            <main className="xl:px-32 xl:py-24 py-10 mx-auto md:mx-20 ">
                 <div>
                     <img className="lg:block hidden scale-125 " onClick={()=>navigate(-1)} src={iconBack} alt="" />
                     <img className={`lg:hidden `}  onClick={()=>navigate(-1)} src={iconBack} alt="" />
@@ -117,7 +117,7 @@ useEffect(()=>{
 
                 <div>
 
-                    <div className={`${labelsInputs.length > 6 ? 'lg:grid-cols-4 gap-y-20 gap-x-52' : 'grid-cols-2'}  grid  gap-y-20 items-center mt-24 w-10/12`}>
+                    <div className={`${labelsInputs.length > 6 ? 'lg:grid-cols-4 gap-y-20 gap-x-52' : 'md::grid-cols-2 '}  grid grid-cols-1  gap-y-20 gap-x-32 items-center mt-24 w-10/12`}>
                         {labelsInputs.map((label, index)=>(
 
                             label === 'tipo' ? (

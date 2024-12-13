@@ -25,6 +25,13 @@ export function AddSensores({}){
         }
 
     },[])
+
+    useEffect(()=>{
+        if (window.innerWidth < 1240){
+            document.body.style.overflowY = 'auto'
+        }
+    },[window.innerWidth])
+    
       
     function enviar(){
 
@@ -84,25 +91,21 @@ export function AddSensores({}){
 
             <main  className="lg:px-32 lg:py-10 w-full h-full mx-auto ">
                 
-                    <div className="my-28  lg:justify-start flex-col justify-center">
-{/*
-                        <div className={`lg:block hidden scale-125 `} onClick={()=>navigate(-1)}>
-                            <img src={iconBack} alt="" />
-                        </div>
+                    <div className="xl:my-28 lg:my-16  lg:justify-start justify-center flex">
 
-                        <div className={`lg:hidden absolute left-10 top-5`} onClick={()=>navigate(-1)}>
-                            <img src={iconBack} alt="" />
-                        </div> */}
-                        <img className="lg:block hidden scale-125 " onClick={()=>navigate(-1)} src={iconBack} alt="" />
-                        <img className={`lg:hidden `}  onClick={()=>navigate(-1)} src={iconBack} alt="" />
-                        <TituloOficial titulo={`Adicionar ao tipo ${table}`}/>
+                        <div>
+                            <img className="lg:block hidden scale-125 " onClick={()=>navigate(-1)} src={iconBack} alt="" />
+                            <img className={`lg:hidden `}  onClick={()=>navigate(-1)} src={iconBack} alt="" />
+                            <TituloOficial titulo={`Adicionar ao tipo ${table}`}/>
+
+                        </div>
                     </div>
 
-                    <div className={`${inputs.length > 6 ? 'lg:grid-cols-4 gap-y-20 gap-x-52' : 'grid-cols-2'}  grid  gap-y-20 items-center justify-center  lg:justify-start mt-24 w-10/12' } grid`}>
+                    <div className={`${inputs.length > 6 ? 'xl:grid-cols-4 lg:grid-cols-3 lg:mt-10 md:grid-cols-2 xl:gap-y-20 gap-y-0 gap-x-52' : 'grid-cols-2'}  grid  gap-y-20 items-center justify-center  lg:justify-start mt-24 w-10/12' } grid`}>
                         {inputs.map((input, index)=>(
                         input === "tipo" ? (
 
-                            <div className="flex flex-col">
+                            <div className="flex flex-col mx-auto">
                                 <label className="text-[#C5C5C5] text-lg">tipo</label>
                                 <select
                                 className="bg-transparent border-b-2 w-60 placeholder-[#606060] border-table text-[#C5C5C5] text-md mt-2" value={inputs[input]} name={input} onChange={ChangeInput} >
@@ -115,7 +118,7 @@ export function AddSensores({}){
                     )
                     
                     : input === 'status_operacional' ? (
-                            <div className="flex flex-col">
+                            <div className="flex flex-col mx-auto">
                                 <label className="text-[#C5C5C5] text-lg">status_operacional</label>
                                 <select className="bg-transparent border-b-2 w-60 placeholder-[#606060] border-table text-[#C5C5C5] text-md mt-2" value={inputs[input]} name={input} onChange={ChangeInput}>  
                                     <option className="bg-inherit text-sm" value="">Selecione</option>
